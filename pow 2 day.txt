@@ -1,0 +1,7 @@
+$Path = "x:\program files"
+$Daysback = "-2"
+$CurrentDate = Get-Date
+$DatetoDelete = $CurrentDate.AddDays($Daysback)
+Get-ChildItem $Path -Recurse -include *.log| Where-Object { $_.LastWriteTime -lt $DatetoDelete } | Remove-Item
+
+
